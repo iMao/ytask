@@ -63,6 +63,8 @@ class IMailBoxImpl : public IMailBox<T> {
 };
 
 const int NUMBER_ITERATIONS{100};
+const int TIME_TO_SLEEP_MILLSEC {5};
+
 
 int main() {
   std::cout << "Yandex task" << std::endl;
@@ -81,7 +83,7 @@ int main() {
       }
       i++;
       std::this_thread::sleep_for(
-          std::chrono::milliseconds(5));  // for imitation of random writing
+          std::chrono::milliseconds(TIME_TO_SLEEP_MILLSEC));  // for imitation of random writing
     }
   });
 
@@ -97,7 +99,7 @@ int main() {
       }
       i++;
       std::this_thread::sleep_for(
-          std::chrono::milliseconds(6));  // for imitation of random reading
+          std::chrono::milliseconds(TIME_TO_SLEEP_MILLSEC+1));  // for imitation of random reading
     }
   });
 
